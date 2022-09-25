@@ -2098,6 +2098,10 @@ ZEND_API int ZEND_FASTCALL compare_function(zval *result, zval *op1, zval *op2) 
 				ZVAL_LONG(result, -1);
 				return SUCCESS;
 
+			case TYPE_PAIR(IS_TRUE, IS_STRING):
+				ZVAL_LONG(result, -1);
+				return SUCCESS;
+
 			default:
 				if (Z_ISREF_P(op1)) {
 					op1 = Z_REFVAL_P(op1);
